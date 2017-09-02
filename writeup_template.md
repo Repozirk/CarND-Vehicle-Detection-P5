@@ -120,10 +120,9 @@ Here's a [link to my video result](./project_video.mp4)
 
 I recorded the positions of positive detections in each frame of the video.  From the positive detections I created a heatmap and then thresholded that map to identify vehicle positions.  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
-Here's an example result showing the heatmap from a series of frames of video, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the last frame of video:
+Here's an example result showing the heatmap, the result of `scipy.ndimage.measurements.label()` and the bounding boxes then overlaid on the picture.
 
-### Here are some frames 
-
+### Here are the detected boxes from the sliding windows method.
 ![alt text][image7]
 
 ### And the corresponding heatmaps and the the resulting bounding boxes are drawn onto the last frame in the series:
@@ -135,5 +134,8 @@ Here's an example result showing the heatmap from a series of frames of video, t
 ###Discussion
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
+
+The pipeline tendency fails on areas with shawdows and cars detected on the opposite direction. Failing on areas with shadow might be improved by getting more data for classification.
+Detecting cars on the opposite direction could be avoided by computing the heat map over serveral frames of the video file. Anoterh approach would be a more intelligent area of interest.
   
 
