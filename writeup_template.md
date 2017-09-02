@@ -29,7 +29,7 @@ The goals / steps of this project are the following:
 
 ####1. Explain how (and identify where in your code) you extracted HOG features from the training images.
 
-The code for this step is contained in code cell 2 of the IPython notebook "codeP5.ipynb" the function to extract the veature vector is called `get_hog_features` and calculates a Histogram of Oriented Gradient (HOG). The function `get_hog_features` is applied in code cell 3 at line #46 and #52 by using the function `extract_features` to combine color_ist ans spatial features
+The code for this step is contained in code cell 2 of the IPython notebook "codeP5.ipynb" the function to extract the veature vector is called `get_hog_features` and calculates a Histogram of Oriented Gradient (HOG). The function `get_hog_features` is applied in code cell 3 at line #46 and #52 by using the function `extract_features` to combine color hist and spatial features
 
 Before calling any function, reading in all the `vehicle` and `non-vehicle` images was necessary. This was done in code cell 3 from line #3.
 Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
