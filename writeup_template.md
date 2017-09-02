@@ -80,23 +80,23 @@ I decided to search in areas of interest depending on the scale for the sliding 
         elif scale == 1.5:
             ystart = 400
             ystop = 550
-            xstart = 400
+            xstart = 450
             xstop = 1250
         elif scale == 2:
             ystart = 400
             ystop = 650
-            xstart = 200
+            xstart = 450
             xstop = 1250
         elif scale == 2.5:
             ystart = 500
             ystop = 650
-            xstart = 200
+            xstart = 400
             xstop = 1000
 ```
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
-Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
+As described I searched on 4 scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image6] 
 
@@ -113,7 +113,7 @@ of at line #42 of code cell 7
 ### Video Implementation
 
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
-Here's a [link to my video result](./project_video.mp4)
+Here's a [link to my video result](./output_video.mp4)
 
 
 ####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
