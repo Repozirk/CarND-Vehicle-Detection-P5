@@ -11,13 +11,14 @@ The goals / steps of this project are the following:
 * Estimate a bounding box for vehicles detected.
 
 [//]: # (Image References)
-[image1]: ./examples/car_not_car.png
-[image2]: ./examples/HOG_example.jpg
-[image3]: ./examples/sliding_windows.jpg
-[image4]: ./examples/sliding_window.jpg
-[image5]: ./examples/bboxes_and_heat.png
-[image6]: ./examples/labels_map.png
-[image7]: ./examples/output_bboxes.png
+[image1]: ./examples/vehicle.png
+[image2]: ./examples/none vehicle.png
+[image3]: ./examples/extract_features.png
+[image4]: ./examples/pipeline1.png
+[image5]: ./examples/pipeline2.png
+[image6]: ./examples/pipeline3.png
+[image7]: ./examples/pipeline4.png
+[image7]: ./examples/pipeline5.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -33,7 +34,7 @@ The code for this step is contained in code cell 2 of the IPython notebook "code
 Before calling any function, reading in all the `vehicle` and `non-vehicle` images was necessary. This was done in code cell 3 from line #3.
 Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 
-![alt text][image1]
+![alt text][image1] ![alt text][image2]
 
 
 ####2. Explain how you settled on your final choice of HOG parameters.
@@ -41,27 +42,61 @@ Here is an example of one of each of the `vehicle` and `non-vehicle` classes:
 Based on the experience during the Vehicle Detection and Tracking Quizzes, I decide to use the `YCrCb` color space and HOG parameters of `orientations=9`, `pixels_per_cell=(8, 8)` and `cells_per_block=(2, 2)` and added to the feature vector the results from the `color_hist` and `bin_spatial` functions located in code cell 2.
 With using different features for the feature_vector, a normalization of the feature vector was performed in line #68 of code cell 3.
 
-![alt text][image2]
+![alt text][image3]
 
 
 
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
-I trained a linear SVM using...
+I trained a linear SVM using the HOG feature `get_hog_features` and `color_hist` and `bin_spatial`. The clasiffier is located in code cell 5 and deliverd following results:
+`Using: 9 orientations 8 pixels per cell and 2 cells per block
+Feature vector length: 8412
+10.88 Seconds to train SVC...
+Test Accuracy of SVC =  0.9899
+My SVC predicts:  [ 0.  1.  1.  0.  1.  0.  0.  0.  0.  0.]
+For these 10 labels:  [ 0.  1.  1.  0.  1.  0.  0.  0.  0.  0.]
+0.01563 Seconds to predict 10 labels with SVC`
 
 ###Sliding Window Search
 
 ####1. Describe how (and identify where in your code) you implemented a sliding window search.  How did you decide what scales to search and how much to overlap windows?
 
-I decided to search random window positions at random scales all over the image and came up with this (ok just kidding I didn't actually ;):
+The method of sliding window search was applied based on the "Udacity Suggestion" and is realized with the function `find_cars` located in code cell 2.
 
-![alt text][image3]
+I decided to search in areas of interest depending on the scale for the sliding windows search (see code cell 7 line 17):
+
+`# Define a row of scale values to get different size of search windows
+    # Define the area of interest depending on scale values
+    for scale in [1, 1.5, 2, 2.5]:     
+        if scale == 1:
+            ystart = 400
+            ystop = 500
+            xstart = 500
+            xstop = 1000
+        elif scale == 1.5:
+            ystart = 400
+            ystop = 550
+            xstart = 400
+            xstop = 1250
+        elif scale == 2:
+            ystart = 400
+            ystop = 650
+            xstart = 200
+            xstop = 1250
+        elif scale == 2.5:
+            ystart = 500
+            ystop = 650
+            xstart = 200
+            xstop = 1000`
+
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
-![alt text][image4]
+![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image6] 
+
+
 ---
 
 ### Video Implementation
