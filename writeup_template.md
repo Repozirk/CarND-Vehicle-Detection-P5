@@ -49,13 +49,13 @@ With using different features for the feature_vector, a normalization of the fea
 ####3. Describe how (and identify where in your code) you trained a classifier using your selected HOG features (and color features if you used them).
 
 I trained a linear SVM using the HOG feature `get_hog_features` and `color_hist` and `bin_spatial`. The clasiffier is located in code cell 5 and deliverd following results:
-`Using: 9 orientations 8 pixels per cell and 2 cells per block
+'''Using: 9 orientations 8 pixels per cell and 2 cells per block
 Feature vector length: 8412
 10.88 Seconds to train SVC...
 Test Accuracy of SVC =  0.9899
 My SVC predicts:  [ 0.  1.  1.  0.  1.  0.  0.  0.  0.  0.]
 For these 10 labels:  [ 0.  1.  1.  0.  1.  0.  0.  0.  0.  0.]
-0.01563 Seconds to predict 10 labels with SVC`
+0.01563 Seconds to predict 10 labels with SVC'''
 
 ###Sliding Window Search
 
@@ -65,7 +65,7 @@ The method of sliding window search was applied based on the "Udacity Suggestion
 
 I decided to search in areas of interest depending on the scale for the sliding windows search (see code cell 7 line 17):
 
-`# Define a row of scale values to get different size of search windows
+'''# Define a row of scale values to get different size of search windows
     # Define the area of interest depending on scale values
     for scale in [1, 1.5, 2, 2.5]:     
         if scale == 1:
@@ -87,7 +87,7 @@ I decided to search in areas of interest depending on the scale for the sliding 
             ystart = 500
             ystop = 650
             xstart = 200
-            xstop = 1000`
+            xstop = 1000'''
 
 
 ####2. Show some examples of test images to demonstrate how your pipeline is working.  What did you do to optimize the performance of your classifier?
@@ -95,6 +95,10 @@ I decided to search in areas of interest depending on the scale for the sliding 
 Ultimately I searched on two scales using YCrCb 3-channel HOG features plus spatially binned color and histograms of color in the feature vector, which provided a nice result.  Here are some example images:
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image6] 
+
+And all different scales combined in `bboxes`
+
+![alt text][image7] 
 
 
 ---
