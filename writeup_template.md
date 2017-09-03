@@ -104,7 +104,6 @@ And all different scales combined  at line #42 of code cell 7 resulted following
 ```python 
 bboxes=bboxes + bbox_list
 ``` 
-of at line #42 of code cell 7
 
 ![alt text][image7]
 
@@ -121,8 +120,33 @@ heat = apply_threshold(heat,0.1)
 ####1. Provide a link to your final video output.  Your pipeline should perform reasonably well on the entire project video (somewhat wobbly or unstable bounding boxes are ok as long as you are identifying the vehicles most of the time with minimal false positives.)
 Here's a [link to my video result](./output_video.mp4)
 
+####2. Describe how (and identify where in your code) you implemented some kind of filter for false positives and some method for combining overlapping bounding boxes.
 
+I recorded the positions of positive detections `bboxes` in each frame of the video.  From the history of positive detections with help of function `bboxes_history` I created a heatmap and then thresholded that map to identify vehicle positions with a value of 2, at line #54 in code cell 8 .  I then used `scipy.ndimage.measurements.label()` to identify individual blobs in the heatmap.  I then assumed each blob corresponded to a vehicle.  I constructed bounding boxes to cover the area of each blob detected.  
 
+Here's an example result showing the heatmap from a series of frames of video, the bounding boxes overlaid on the last frame of video as a result of `scipy.ndimage.measurements.label()`:
+
+### Here are the first 3 frames and the 10th frame and their corresponding heatmaps:
+
+Frame 1: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
+![alt text][image9]
+![alt text][image10]
+
+Frame 2: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
+![alt text][image10]
+![alt text][image11]
+
+Frame 3: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
+![alt text][image12]
+![alt text][image13]
+
+.
+.
+.
+
+Frame 10: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
+![alt text][image14]
+![alt text][image15]
 
 
 ---
@@ -131,7 +155,10 @@ Here's a [link to my video result](./output_video.mp4)
 
 ####1. Briefly discuss any problems / issues you faced in your implementation of this project.  Where will your pipeline likely fail?  What could you do to make it more robust?
 
-The pipeline tendency fails on areas with shawdows and cars detected on the opposite direction. Failing on areas with shadow might be improved by getting more data for classification.
-Detecting cars on the opposite direction could be avoided by computing the heat map over serveral frames of the video file. Anoterh approach would be a more intelligent area of interest.
+At the beginning without regarding the results from previous frames the bounding boxes had a lot of jitter during the video stream and there where false detection from the opposite direction traffic of from shadow areas on the road. The false detections from the opposite direction traffic could be avoided by cutting the area of interest. But the false detections from shadow areas on the road and  jitter of the bounding boxes was not solved.
+
+With implementation of adding bounding boxes over the last 10 frames of the video, the whole pipeline got more robust. The jitter disappeared and there where no false detections. A more professional approach to record bounding boxes would be the use of a class. The storage of previous bounding boxes was done with the "deque" function as suggested by my reviewer of the first submission.
+
+A optimzation of  the classifier wouls increase of robustness as well.
   
 
