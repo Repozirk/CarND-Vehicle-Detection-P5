@@ -101,7 +101,8 @@ As described I searched on 4 scales using YCrCb 3-channel HOG features plus spat
 ![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image6] 
 
 And all different scales combined in 
-```python bboxest
+```python 
+bboxes=bboxes + bbox_list
 ``` 
 of at line #42 of code cell 7
 
