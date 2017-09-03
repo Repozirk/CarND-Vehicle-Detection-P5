@@ -100,13 +100,15 @@ As described I searched on 4 scales using YCrCb 3-channel HOG features plus spat
 
 ![alt text][image4] ![alt text][image5] ![alt text][image6] ![alt text][image6] 
 
-And all different scales combined in 
+And all different scales combined  at line #42 of code cell 7 resulted following image:
 ```python 
 bboxes=bboxes + bbox_list
 ``` 
 of at line #42 of code cell 7
 
-![alt text][image7] 
+![alt text][image7]
+
+From assigned boxes from heatmap using label function creating followin result in the known test image:
 
 ![alt text][image8]
 
