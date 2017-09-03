@@ -108,8 +108,10 @@ of at line #42 of code cell 7
 
 ![alt text][image7]
 
-From assigned boxes from heatmap using label function creating followin result in the known test image:
-
+From assigned boxes from heatmap using label function creating followin result in the known test image (with threshold of 0.1:
+```python
+heat = apply_threshold(heat,0.1)
+```
 ![alt text][image8]
 
 ---
