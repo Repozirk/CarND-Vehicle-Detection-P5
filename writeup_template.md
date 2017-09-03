@@ -19,6 +19,14 @@ The goals / steps of this project are the following:
 [image6]: ./examples/pipeline3.png
 [image7]: ./examples/pipeline4.png
 [image8]: ./examples/pipeline5.png
+[image9]: ./examples/pipeline_video1.png
+[image9]: ./examples/pipeline_video1_1.png
+[image10]: ./examples/pipeline_video2.png
+[image11]: ./examples/pipeline_video2_1.png
+[image12]: ./examples/pipeline_video3.png
+[image13]: ./examples/pipeline_video3_1.png
+[image14]: ./examples/pipeline_video4.png
+[image15]: ./examples/pipeline_video4_1.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
