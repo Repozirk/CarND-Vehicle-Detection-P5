@@ -20,13 +20,13 @@ The goals / steps of this project are the following:
 [image7]: ./examples/pipeline4.png
 [image8]: ./examples/pipeline5.png
 [image9]: ./examples/pipeline_video1.png
-[image9]: ./examples/pipeline_video1_1.png
-[image10]: ./examples/pipeline_video2.png
-[image11]: ./examples/pipeline_video2_1.png
-[image12]: ./examples/pipeline_video3.png
-[image13]: ./examples/pipeline_video3_1.png
-[image14]: ./examples/pipeline_video4.png
-[image15]: ./examples/pipeline_video4_1.png
+[image10]: ./examples/pipeline_video1_1.png
+[image11]: ./examples/pipeline_video2.png
+[image12]: ./examples/pipeline_video2_1.png
+[image13]: ./examples/pipeline_video3.png
+[image14]: ./examples/pipeline_video3_1.png
+[image15]: ./examples/pipeline_video4.png
+[image16]: ./examples/pipeline_video4_1.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -141,20 +141,20 @@ Frame 1: Bounding boxes and heatmap for the single frame and below Bounding boxe
 ![alt text][image10]
 
 Frame 2: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
-![alt text][image10]
 ![alt text][image11]
+![alt text][image12]
 
 Frame 3: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
-![alt text][image12]
 ![alt text][image13]
+![alt text][image14]
 
 .
 .
 .
 
 Frame 10: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
-![alt text][image14]
 ![alt text][image15]
+![alt text][image16]
 
 
 ---
