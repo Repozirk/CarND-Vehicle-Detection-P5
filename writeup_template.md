@@ -25,8 +25,6 @@ The goals / steps of this project are the following:
 [image12]: ./examples/pipeline_video2_1.png
 [image13]: ./examples/pipeline_video3.png
 [image14]: ./examples/pipeline_video3_1.png
-[image15]: ./examples/pipeline_video4.png
-[image16]: ./examples/pipeline_video4_1.png
 [video1]: ./project_video.mp4
 
 ## [Rubric](https://review.udacity.com/#!/rubrics/513/view) Points
@@ -134,7 +132,7 @@ I recorded the positions of positive detections `bboxes` in each frame of the vi
 
 Here's an example result showing the heatmap from a series of frames of video, the bounding boxes overlaid on the last frame of video as a result of `scipy.ndimage.measurements.label()`:
 
-### Here are the first 3 frames and the 10th frame and their corresponding heatmaps:
+### Here are as an example 3 frames in row and their corresponding heatmaps:
 
 Frame 1: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
 ![alt text][image9]
@@ -148,13 +146,8 @@ Frame 3: Bounding boxes and heatmap for the single frame and below Bounding boxe
 ![alt text][image13]
 ![alt text][image14]
 
-.
-.
-.
 
-Frame 10: Bounding boxes and heatmap for the single frame and below Bounding boxes and heatmap for the last 10 frames
-![alt text][image15]
-![alt text][image16]
+The advantage of a series of frames can be easily seen on this example. The second vehicle is not detected from frame to frame. But with adding the bounding boxes of previous frames the second vehicle stays detected.
 
 
 ---
@@ -167,6 +160,6 @@ At the beginning without regarding the results from previous frames the bounding
 
 With implementation of adding bounding boxes over the last 10 frames of the video, the whole pipeline got more robust. The jitter disappeared and there where no false detections. A more professional approach to record bounding boxes would be the use of a class. The storage of previous bounding boxes was done with the "deque" function as suggested by my reviewer of the first submission.
 
-A optimzation of  the classifier wouls increase of robustness as well.
+A optimzation of the classifier wouls increase of robustness as well, to avoid not detected vehicles from frame to frame.
   
 
