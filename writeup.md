@@ -160,6 +160,6 @@ At the beginning without regarding the results from previous frames the bounding
 
 With implementation of adding bounding boxes over the last 10 frames of the video, the whole pipeline got more robust. The jitter disappeared and there where no false detections. A more professional approach to record bounding boxes would be the use of a class. The storage of previous bounding boxes was done with the "deque" function as suggested by my reviewer of the first submission.
 
-A optimzation of the classifier wouls increase of robustness as well, to avoid not detected vehicles from frame to frame.
+A optimzation of the classifier would increase of robustness as well, to avoid not detected vehicles from frame to frame.
   
 
